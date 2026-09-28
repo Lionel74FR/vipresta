@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { reviews } from "@/lib/content";
+import { googleReviewsUrl, reviews } from "@/lib/content";
 import { SectionHeading } from "./ui/SectionHeading";
 import { IconArrow, IconQuote, IconStar } from "./ui/Icons";
 
@@ -11,10 +11,13 @@ export function Reviews() {
   const [paused, setPaused] = useState(false);
 
   useEffect(() => {
-    if (paused) return;
+    if (paused || reviews.length < 2) return;
     const id = setInterval(() => setIndex((i) => (i + 1) % reviews.length), 7000);
     return () => clearInterval(id);
   }, [paused]);
+
+  // Aucun avis réel renseigné : la section ne s'affiche pas.
+  if (reviews.length === 0) return null;
 
   const review = reviews[index];
 
@@ -23,7 +26,11 @@ export function Reviews() {
       <div className="glow absolute -right-40 top-1/3 -z-10 h-80 w-80" />
 
       <div className="container-x">
-        <SectionHeading eyebrow="Avis clients" title="Ils nous ont confié leur événement" />
+        <SectionHeading
+          eyebrow="Avis clients"
+          title="Ils nous ont confié leur événement"
+          lead="Avis publiés sur notre fiche Google."
+        />
 
         <div
           className="relative mx-auto mt-14 max-w-3xl"
@@ -99,6 +106,18 @@ export function Reviews() {
             >
               <IconArrow className="h-4 w-4" />
             </button>
+          </div>
+
+          <div className="mt-10 text-center">
+            <a
+              href={googleReviewsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-underline inline-flex items-center gap-2.5 text-[0.7rem] uppercase tracking-[0.24em] text-gold-300/90"
+            >
+              Voir tous les avis sur Google
+              <IconArrow className="h-3.5 w-3.5" />
+            </a>
           </div>
         </div>
       </div>

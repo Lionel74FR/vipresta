@@ -18,10 +18,10 @@ export function About() {
         {/* Visuel */}
         <div ref={ref} className="relative order-2 lg:order-1">
           <Reveal direction="right">
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] border-gold-soft">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[2rem] border-gold-soft">
               <motion.div style={{ y }} className="absolute inset-[-8%]">
                 <Image
-                  src="/images/about.svg"
+                  src="/images/about.webp"
                   alt="Équipe VIPresta en mission"
                   fill
                   sizes="(max-width: 1024px) 100vw, 45vw"

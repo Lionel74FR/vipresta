@@ -65,13 +65,13 @@ export function Prestige() {
                 }}
                 className="grid cursor-grab active:cursor-grabbing md:grid-cols-2"
               >
-                <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[30rem]">
+                <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[33rem]">
                   <Image
                     src={item.image}
                     alt={item.name}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover"
+                    className="object-cover object-top"
                     draggable={false}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink-900 via-transparent to-transparent md:bg-gradient-to-r" />
@@ -83,6 +83,21 @@ export function Prestige() {
                   </span>
                   <h3 className="text-4xl leading-tight text-cream sm:text-5xl">{item.name}</h3>
                   <p className="text-pretty leading-relaxed text-muted">{item.description}</p>
+
+                  {item.points ? (
+                    <ul className="flex flex-col gap-2.5">
+                      {item.points.map((point) => (
+                        <li key={point} className="flex items-start gap-3 text-sm text-cream/75">
+                          <span
+                            aria-hidden="true"
+                            className="mt-[0.45rem] h-1 w-1 shrink-0 rotate-45 bg-gold-300"
+                          />
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
+
                   <a
                     href="#contact"
                     className="btn-ghost mt-2 inline-flex w-fit items-center gap-3 rounded-full px-7 py-3.5 text-[0.7rem] uppercase tracking-[0.24em]"

@@ -63,6 +63,11 @@ export function Contact() {
               { icon: IconMail, label: "E-mail", value: site.email, href: `mailto:${site.email}` },
               {
                 icon: IconPin,
+                label: "Adresse",
+                value: `${site.address.street}, ${site.address.postalCode} ${site.address.locality}`,
+              },
+              {
+                icon: IconPin,
                 label: "Zones d'intervention",
                 value: site.zones.join(" • "),
               },

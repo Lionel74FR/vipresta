@@ -71,6 +71,8 @@ const jsonLd = {
   areaServed: site.zones.map((zone) => ({ "@type": "Place", name: zone })),
   address: {
     "@type": "PostalAddress",
+    streetAddress: site.address.street,
+    postalCode: site.address.postalCode,
     addressLocality: site.address.locality,
     addressRegion: site.address.region,
     addressCountry: site.address.country,

@@ -5,6 +5,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Logo } from "./ui/Logo";
 import { nav, site } from "@/lib/content";
 
+/** Le bouton « Demander un devis » mene deja au contact : inutile de le doubler dans le menu. */
+const navDesktop = nav.filter((item) => item.href !== "#contact");
+
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -54,13 +57,13 @@ export function Header() {
           <Logo />
         </a>
 
-        <nav className="hidden items-center gap-9 lg:flex">
-          {nav.map((item) => (
+        <nav className="hidden items-center gap-5 xl:flex xl:gap-7">
+          {navDesktop.map((item) => (
             <a
               key={item.href}
               href={item.href}
               data-active={active === item.href}
-              className="link-underline text-[0.78rem] uppercase tracking-[0.2em] text-cream/75 transition-colors hover:text-gold-100"
+              className="link-underline whitespace-nowrap text-[0.7rem] uppercase tracking-[0.14em] text-cream/75 transition-colors hover:text-gold-100 xl:text-[0.78rem] xl:tracking-[0.2em]"
             >
               {item.label}
             </a>
@@ -80,7 +83,7 @@ export function Header() {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
             aria-expanded={open}
-            className="relative grid h-11 w-11 place-items-center rounded-full border border-gold-400/25 lg:hidden"
+            className="relative grid h-11 w-11 place-items-center rounded-full border border-gold-400/25 xl:hidden"
           >
             <span className="sr-only">Menu</span>
             <span className="flex w-5 flex-col gap-[5px]">
@@ -108,7 +111,7 @@ export function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden border-t border-gold-400/10 bg-ink-950/95 backdrop-blur-xl lg:hidden"
+            className="overflow-hidden border-t border-gold-400/10 bg-ink-950/95 backdrop-blur-xl xl:hidden"
           >
             <nav className="container-x flex flex-col py-6">
               {nav.map((item, i) => (

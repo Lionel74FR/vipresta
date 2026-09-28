@@ -20,7 +20,7 @@ export function Hero() {
       {/* Arrière-plan */}
       <motion.div style={{ y, scale }} className="absolute inset-0 -z-20">
         <Image
-          src="/images/hero.svg"
+          src="/images/hero.webp"
           alt=""
           fill
           priority

@@ -1,6 +1,6 @@
 /**
  * Contenu éditorial du site VIPresta.
- * ─────────────────────────────────────────────────────────────
+ * -------------------------------------------------------------
  * Tout le texte du site est centralisé ici : modifier ce fichier
  * suffit pour mettre le site à jour, sans toucher aux composants.
  */
@@ -18,9 +18,23 @@ export const site = {
   instagram: "https://www.instagram.com/vipresta_",
   facebook: "https://www.facebook.com/share/1BxDajZ5JT/?mibextid=wwXIfr",
   address: {
-    locality: "Annecy",
+    street: "892 chemin de Chantepoulet",
+    complement: "ZA Les Vanettes",
+    postalCode: "74330",
+    locality: "Poisy",
     region: "Haute-Savoie",
     country: "FR",
+  },
+  legal: {
+    /** Source : annuaire-entreprises.data.gouv.fr (INSEE / RNE), consulte le 25/09/2026. */
+    form: "SARL",
+    manager: "Sabrina Moufrige",
+    siren: "101 449 296",
+    siret: "101 449 296 00017",
+    vat: "FR21101449296",
+    rcs: "RCS Annecy 101 449 296",
+    ape: "82.99Z — Autres activites de soutien aux entreprises n.c.a.",
+    capital: "3 000 €",
   },
 } as const;
 
@@ -28,17 +42,19 @@ export const nav = [
   { label: "À propos", href: "#a-propos" },
   { label: "Services", href: "#services" },
   { label: "Animations", href: "#animations" },
-  { label: "Valeurs", href: "#valeurs" },
+  { label: "Tenues", href: "#tenues" },
+  { label: "Galerie", href: "#galerie" },
   { label: "Avis", href: "#avis" },
+  { label: "Partenaires", href: "#partenaires" },
   { label: "Contact", href: "#contact" },
 ];
 
 export const about = {
   eyebrow: "À propos",
   title: "Une agence d'exception",
-  lead: "VIPresta est une agence d'hôtesses, hôtes et d'animations événementielles basée à Annecy et en Haute-Savoie.",
+  lead: "VIPresta est une agence d'hôtesses, hôtes et d'animations événementielles basée à Annecy, au cœur de la Haute-Savoie.",
   body: [
-    "Nous accompagnons les organisateurs d'événements, entreprises et institutions avec un sourcing rigoureux, une exigence de service et une élégance qui ne laissent rien au hasard.",
+    "Nous accompagnons les organisateurs d'événements, entreprises et institutions avec une équipe élégante, formée, réactive et bilingue, qui incarne une image haut de gamme et professionnelle.",
     "Chaque mission est préparée, briefée et supervisée. Notre promesse : incarner votre image sur le terrain, avec la même rigueur que si c'était la nôtre.",
   ],
   stats: [
@@ -62,25 +78,25 @@ export const services: Service[] = [
     id: "hotesses",
     title: "Hôtesses & hôtes d'accueil",
     description:
-      "Accueil, orientation, vestiaire, billetterie, accompagnement VIP : un personnel formé, présenté et briefé pour représenter votre marque avec justesse.",
-    image: "/images/service-hotesses.svg",
-    points: ["Accueil salons & congrès", "Soirées privées & galas", "Lancements de produit"],
+      "Présentation irréprochable, accueil fluide et chaleureux, équipes bilingues : nos hôtesses et hôtes incarnent l'élégance et le professionnalisme de votre marque sur le terrain.",
+    image: "/images/service-hotesses.webp",
+    points: ["Accueil & orientation des visiteurs", "Gestion des flux et contrôle des accès", "Distribution de badges & documents"],
   },
   {
     id: "evenementiel",
-    title: "Coordination événementielle",
+    title: "Coordination terrain",
     description:
-      "Un chef de projet dédié qui cadre le dispositif, dimensionne les équipes et tient le planning le jour J. Vous gardez la main, nous gérons l'exécution.",
-    image: "/images/service-coordination.svg",
+      "Gestion des flux, soutien logistique et communication directe côté organisateur. Un interlocuteur dédié qui cadre le dispositif et tient le planning le jour J.",
+    image: "/images/service-coordination.webp",
     points: ["Brief & repérage", "Staffing sur mesure", "Supervision sur site"],
   },
   {
     id: "animation",
-    title: "Animations & street marketing",
+    title: "Animations prestige",
     description:
-      "Des dispositifs qui créent l'attention : animations en boutique, opérations terrain, distribution d'échantillons et activations de marque.",
-    image: "/images/service-animation.svg",
-    points: ["Animation commerciale", "Opérations terrain", "Activation de marque"],
+      "Des dispositifs qui créent l'attention et transforment le service en véritable expérience visuelle : Robe Plateau LED, Robe Champagne, Ceinture Mouvika.",
+    image: "/images/service-animation.webp",
+    points: ["Animation lumineuse", "Service mobile & interactif", "Activation de marque"],
   },
 ];
 
@@ -90,42 +106,105 @@ export type PrestigeAnimation = {
   tagline: string;
   description: string;
   image: string;
+  points?: string[];
 };
 
 export const prestige: PrestigeAnimation[] = [
   {
     id: "robe-plateau-led",
     name: "Robe Plateau LED",
-    tagline: "L'entrée en scène lumineuse",
+    tagline: "Alliance de la technologie et de l'élégance",
     description:
-      "Service bandeaux et vodkas. Cette robe illuminée porte vos bouteilles de champagne ou de spiritueux et crée l'instant gourmand que tout le monde filme.",
-    image: "/images/prestige-led.svg",
+      "Équipée d'un plateau circulaire lumineux, la Robe Plateau LED permet à l'hôtesse de servir vos invités avec raffinement tout en créant une ambiance spectaculaire. Cette animation attire instantanément le regard et transforme le service en véritable expérience visuelle. Idéale pour les cocktails, lancements de produits, soirées premium et réceptions, elle s'adapte à tous les univers grâce à son design moderne et à sa lumière personnalisable.",
+    image: "/images/prestige-led.webp",
+    points: ["Lumière personnalisable", "Cornets apéritifs & cornets de fruits", "Cocktails, lancements, réceptions"],
   },
   {
     id: "robe-champagne",
     name: "Robe Champagne",
-    tagline: "Le service qui vient à vous",
+    tagline: "L'animation signature des soirées VIPresta",
     description:
-      "Animation chic et spectaculaire : notre hôtesse porte les verres de champagne en harmonie parfaite, offrant une présentation aussi élégante que mémorable.",
-    image: "/images/prestige-champagne.svg",
+      "Icône du raffinement et du prestige, la Robe Champagne permet à l'hôtesse de présenter les flûtes directement sur sa structure circulaire, créant une expérience visuelle élégante et immersive. Chaque détail — lumière, posture, tenue — contribue à une atmosphère chic et festive, idéale pour les cocktails, réceptions, inaugurations et événements haut de gamme.",
+    image: "/images/prestige-champagne.webp",
+    points: ["Champagne & cocktails", "Cornets apéritifs & desserts", "Structure lumineuse"],
   },
   {
-    id: "ceinture-moovika",
-    name: "Ceinture Moovika",
-    tagline: "La mobilité du service",
+    id: "ceinture-mouvika",
+    name: "Ceinture Mouvika",
+    tagline: "Le service mobile, dynamique et mains libres",
     description:
-      "Service mobile et intuitif. Une animation élégante permettant de circuler parmi vos convives avec fluidité et style, sans jamais rompre le rythme de la soirée.",
-    image: "/images/prestige-moovika.svg",
+      "Innovation mobile et élégante, la Ceinture Mouvika permet à nos hôtes et hôtesses de servir de manière fluide, dynamique et totalement mains libres. Chaque ceinture est équipée pour transporter une variété de produits gastronomiques tout en conservant une posture professionnelle et un style moderne. Pensée pour maximiser l'interaction avec les invités, elle offre un service mobile, chaleureux et efficace.",
+    image: "/images/prestige-mouvika.webp",
+    points: ["Service totalement mains libres", "Tartare de tomate, burrata, blinis saumon", "Desserts, fondue au chocolat, crème brûlée"],
   },
   {
-    id: "bar-mobile",
-    name: "Bar mobile signature",
-    tagline: "Le cocktail en mouvement",
+    id: "sur-mesure",
+    name: "Services sur mesure",
+    tagline: "Adapté à chaque événement",
     description:
-      "Un bar itinérant tenu par nos barmen, pensé pour les espaces sans point d'eau. Cartes sur mesure, verrerie soignée, service à la table.",
-    image: "/images/prestige-bar.svg",
+      "Aucun événement ne ressemble à un autre. Nous construisons le dispositif avec vous : format d'animation, dimensionnement des équipes, tenues, contenus servis et scénographie sont adaptés à vos besoins et à votre image.",
+    image: "/images/prestige-surmesure.webp",
+    points: ["Dispositif adapté à votre image", "Contenus et tenues personnalisables", "Devis sous 24 h ouvrées"],
   },
 ];
+
+export const tenues = {
+  eyebrow: "Tenues",
+  title: "La signature VIPresta",
+  lead: "Chaque mission commence par une tenue impeccable. Nos équipes arrivent briefées, en tenue complète et prêtes à représenter votre marque.",
+  images: [
+    {
+      src: "/images/tenues.webp",
+      alt: "Hôtesses VIPresta en chemise blanche au logo brodé doré et jupe marine",
+      caption: "Tenue claire",
+    },
+    {
+      src: "/images/tenue-noire.webp",
+      alt: "Tenue noire VIPresta : chemise à épaulettes dorées, logo brodé et foulard rouge",
+      caption: "Tenue noire",
+    },
+  ],
+  items: [
+    {
+      title: "Chemise blanche",
+      description: "Chemise blanche satinée au logo VIPresta brodé doré.",
+    },
+    {
+      title: "Bas coordonné",
+      description: "Jupe crayon ou pantalon noir, selon le format de l'événement.",
+    },
+    {
+      title: "Variante noire",
+      description: "Chemise noire à épaulettes dorées et logo VIPresta brodé, pour les formats plus habillés.",
+    },
+    {
+      title: "Accessoires signature",
+      description: "Foulard rouge, ceinture assortie et casquette marine pour les formats événementiels.",
+    },
+    {
+      title: "Présentation",
+      description: "Maquillage soigné, sourire et posture élégante : la présentation fait partie de la prestation.",
+    },
+  ],
+  note: "Tenue personnalisable sur demande : nous pouvons adapter les couleurs et les accessoires à votre charte.",
+};
+
+export const gallery = {
+  eyebrow: "En images",
+  title: "Nos animations en événement",
+  lead: "Quelques moments capturés sur nos missions : salons, cocktails, inaugurations et soirées privées.",
+  photos: [
+    { src: "/images/photos/g-equipe.webp", alt: "Hôtesses VIPresta servant le champagne sur plateau lumineux" },
+    { src: "/images/photos/g-soiree.webp", alt: "Service de cornets apéritifs sur plateau lumineux au cœur des invités" },
+    { src: "/images/photos/g-plateau-rouge.webp", alt: "Robe Plateau LED en rouge lors d'une soirée sous chapiteau" },
+    { src: "/images/photos/g-structure.webp", alt: "Structure lumineuse complète de la Robe Champagne, garnie de flûtes" },
+    { src: "/images/photos/g-led-vert.webp", alt: "Invité se servant une flûte sur la Robe Champagne éclairée en vert" },
+    { src: "/images/photos/g-led-violet.webp", alt: "Détail de la Robe Champagne éclairée en violet" },
+    { src: "/images/photos/g-led-interieur.webp", alt: "Hôtesse VIPresta en chemise à épaulettes dorées et plateau lumineux" },
+    { src: "/images/photos/g-led-exterieur.webp", alt: "Service du champagne sur plateau lumineux lors d'une réception" },
+    { src: "/images/photos/g-stand.webp", alt: "Chariot à champagne aux couleurs de VIPresta" },
+  ],
+};
 
 export const values = [
   {
@@ -161,46 +240,86 @@ export type Review = {
   text: string;
 };
 
+/** Lien public vers la fiche Google de VIPresta (avis vérifiables). */
+export const googleReviewsUrl = "https://share.google/ddRXAE6N2p4NFRbeI";
+
+/**
+ * Avis clients réels, repris de la fiche Google VIPresta.
+ * Les avis affichés tronqués par Google sont repris jusqu'à leur dernière
+ * phrase complète, sans ajout. Orthographe et ponctuation légèrement
+ * normalisées, sans modification du propos.
+ * Tant que ce tableau est vide, la section « Avis » ne s'affiche pas.
+ */
 export const reviews: Review[] = [
   {
-    author: "Philippe P.",
-    role: "Directeur de salon professionnel",
+    author: "Mathilde",
     rating: 5,
-    text: "Une équipe de très bonne qualité, soignée et excellente. Le suivi est réel, l'organisation parfaite et rien n'est laissé au hasard. Je recommande vivement.",
+    text: "Super agence, à recommander sans hésiter ! Je suis ravie de travailler avec cette agence : professionnelle, responsable et surtout hyper sympa ! La responsable est à l'écoute, toujours arrangeante et fait preuve d'une grande flexibilité pour répondre à nos besoins. Les événements organisés sont tout simplement géniaux : bien pensés, originaux et parfaitement exécutés. Une expérience au top !",
   },
   {
-    author: "Sandra M.",
-    role: "Responsable communication",
+    author: "Matthieu Leblondel",
+    role: "Soirée d'entreprise",
     rating: 5,
-    text: "Nous avons fait appel à VIPresta pour notre soirée de lancement : accueil impeccable, ponctualité irréprochable et une vraie élégance. Nos invités en parlent encore.",
+    text: "Un plaisir de passer une/des soirée(s) avec VIPresta !! Nous avons fait appel à leur service pour une soirée d'entreprise. Sabrina et son équipe ont répondu à toutes nos demandes et nos attentes.",
   },
   {
-    author: "Karim B.",
-    role: "Wedding planner",
+    author: "Nuances Création",
+    role: "Soirée de Noël, 60 personnes",
     rating: 5,
-    text: "La Robe Champagne a créé l'effet recherché au moment du cocktail. Professionnalisme et sens du détail : exactement ce qu'on attend d'une agence de prestige.",
+    text: "Je suis passé par VIPresta pour l'organisation d'une soirée de Noël d'entreprise, nous étions 60 personnes au total. Sabrina et son équipe ont été au top, à l'écoute et aux petits soins.",
   },
   {
-    author: "Élodie V.",
-    role: "Directrice d'hôtel 5★",
+    author: "Big Bang Event",
+    role: "Partenaire événementiel",
     rating: 5,
-    text: "Réactivité remarquable sur un remplacement de dernière minute. L'hôtesse envoyée était parfaitement briefée. Un partenaire sur lequel on peut compter.",
+    text: "Très satisfait de notre collaboration avec VIPresta. Équipe professionnelle, réactive et à l'écoute. Matériel de qualité et service irréprochable. Je recommande sans hésiter !",
+  },
+  {
+    author: "Cha Adv",
+    role: "Événement à Annecy",
+    rating: 5,
+    text: "Nous avons fait appel à VIPresta pour l'organisation d'un événement sur Annecy. Dès le premier rendez-vous, l'équipe a été à l'écoute et ultra-professionnelle.",
+  },
+  {
+    author: "Mariana Oliinyk",
+    rating: 5,
+    text: "Excellente agence ! J'ai été très satisfaite de leurs services. L'équipe est professionnelle, réactive et très agréable. Tout était parfaitement organisé et s'est déroulé dans une excellente ambiance. Je recommande cette agence sans hésitation et je leur souhaite beaucoup de succès.",
+  },
+  {
+    author: "Halyna Horin",
+    rating: 5,
+    text: "J'ai eu une bonne expérience avec VIPresta. L'équipe est professionnelle et réactive, et les hôtesses sont bien présentées et polies. L'organisation des événements se passe généralement sans problème, ce qui rend le service fiable et agréable.",
   },
 ];
 
-export const clients = [
-  "Maison Aurélien",
-  "Groupe Levantis",
-  "Riviera Events",
-  "83 Studio",
-  "Nova Prestige",
-  "Bureau Milane",
-  "Altitude Group",
-  "Carrera & Fils",
-  "Écrin Capital",
-  "Edifim",
-  "Sérac Hotels",
-  "Lumina Studio",
+export type Partner = {
+  name: string;
+  /** Logo optionnel : place le fichier dans public/images/partenaires/ */
+  logo?: string;
+};
+
+/**
+ * Partenaires et clients réels. Sans logo, le nom s'affiche en typographie.
+ */
+export const partners: Partner[] = [
+  { name: "FC Annecy", logo: "/images/partenaires/fc-annecy.webp" },
+  { name: "Les Vitrines d'Annecy", logo: "/images/partenaires/vitrines-annecy.webp" },
+  { name: "BAAR Rugby", logo: "/images/partenaires/baar-rugby.webp" },
+  { name: "Société Générale", logo: "/images/partenaires/societe-generale.webp" },
+  { name: "Rochexpo", logo: "/images/partenaires/rochexpo.webp" },
+  { name: "Commune de Poisy", logo: "/images/partenaires/poisy.webp" },
+  { name: "Edifim", logo: "/images/partenaires/edifim.webp" },
+  { name: "Garage Mouthon", logo: "/images/partenaires/garage-mouthon.webp" },
+  { name: "Nuances", logo: "/images/partenaires/nuances.webp" },
+  { name: "NetDev", logo: "/images/partenaires/netdev.webp" },
+  { name: "Espace Revêtements Arti-Sols", logo: "/images/partenaires/espace-artisols.webp" },
+  { name: "Bois Mauris", logo: "/images/partenaires/bois-mauris.webp" },
+  { name: "Big Bang Event", logo: "/images/partenaires/big-bang-event.webp" },
+  { name: "La Caserne Thônes", logo: "/images/partenaires/la-caserne.webp" },
+  { name: "BIM Agency", logo: "/images/partenaires/bim-agency.webp" },
+  { name: "Sesama Concept", logo: "/images/partenaires/sesama-concept.webp" },
+  // TODO : logo manquant — ajouter public/images/partenaires/hockey-annecy.webp
+  { name: "Hockey Annecy" },
 ];
 
 export const contact = {
