@@ -318,8 +318,7 @@ export const partners: Partner[] = [
   { name: "La Caserne Thônes", logo: "/images/partenaires/la-caserne.webp" },
   { name: "BIM Agency", logo: "/images/partenaires/bim-agency.webp" },
   { name: "Sesama Concept", logo: "/images/partenaires/sesama-concept.webp" },
-  // TODO : logo manquant — ajouter public/images/partenaires/hockey-annecy.webp
-  { name: "Hockey Annecy" },
+  { name: "Hockey Annecy", logo: "/images/partenaires/hockey-annecy.webp" },
 ];
 
 export const contact = {
