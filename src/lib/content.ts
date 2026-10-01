@@ -163,6 +163,11 @@ export const tenues = {
       alt: "Tenue noire VIPresta : chemise à épaulettes dorées, logo brodé et foulard rouge",
       caption: "Tenue noire",
     },
+    {
+      src: "/images/tenue-polos.webp",
+      alt: "Polos VIPresta noir et blanc au logo VP brodé fil doré",
+      caption: "Polos brodés",
+    },
   ],
   items: [
     {
@@ -186,7 +191,7 @@ export const tenues = {
       description: "Maquillage soigné, sourire et posture élégante : la présentation fait partie de la prestation.",
     },
   ],
-  note: "Tenue personnalisable sur demande : nous pouvons adapter les couleurs et les accessoires à votre charte.",
+  note: "Tenue personnalisable sur demande : nous vous proposons plusieurs déclinaisons — couleurs, coupes et accessoires — adaptées à votre charte et au format de votre événement.",
 };
 
 export const gallery = {
